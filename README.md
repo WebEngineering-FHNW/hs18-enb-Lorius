@@ -22,7 +22,7 @@ Eine Webseite auf der man mindestens 1 Blog führen kann.
 ### How to test the project: 
 `grailsw test-app` oder `grailsw.bat test-app`
 
-### Hand-written, static HTML 
+### Hand-written\, static HTML 
 ### project description:
 `index.html`
 
