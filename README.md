@@ -7,6 +7,15 @@
 
 ### Project idea short description:
 Eine Webseite auf der man mindestens 1 Blog führen kann.
+Die Webseite sollte folgendes beinhalten:
+- einen Admin Bereich für das Verwalten des Blogs
+- einen Rich Text Editor für das Erstellen der Blog-Einträge
+- "About Page"
+
+Mögliche Erweiterungen:
+- Mehrere Blogs für mehrere User
+- Kommentare für die einzelnen Blog-Einträge
+- Profile für die Nuter
 
 
 ## Project confirmation
