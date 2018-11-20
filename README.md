@@ -15,18 +15,21 @@ Eine Webseite auf der man mindestens 1 Blog führen kann.
 
 ## Project delivery <to be filled by student>
 
-How to start the project: (if other than `grailsw run-app`)
+### How to start the project:
+`grailsw run-app` oder `grailsw.bat run-app`
 
-How to test the project:  (if other than `grailsw test-app`)
+### How to test the project: 
+`grailsw test-app` oder `grailsw.bat test-app`
 
-Hand-written, static HTML 
-project description:      (if other than `index.html` in project root directory)
+### Hand-written, static HTML 
+### project description:
+`index.html`
 
-External contributions:
+### External contributions:
 
-Other comments: 
+### Other comments: 
 
-I'm particular proud of:
+### I'm particulary proud of:
 
 
 ## Project grading 
