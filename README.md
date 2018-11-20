@@ -2,9 +2,10 @@
 
 ## Commit Proposal
 
-Matriculation Number: 15-941-461
+### Matriculation Number: 15-941-461
 
-Project idea short description: 
+### Project idea short description:
+Eine Webseite auf der man mindestens 1 Blog führen kann.
 
 
 ## Project confirmation
