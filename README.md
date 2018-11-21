@@ -20,8 +20,9 @@ Mögliche Erweiterungen:
 
 ## Project confirmation
 
-< to be filled by lecturer>
+Great idea. Before doing the admin zone, let's concentrate on the blog space.
 
+You might start.
 
 ## Project delivery <to be filled by student>
 
