@@ -41,7 +41,7 @@
         <div id="toolbar">
             <!-- Look here for exec commands: https://developer.mozilla.org/en-US/docs/Web/API/Document/execCommand -->
             <!-- EXTERNAL: The svg graphic is from material.io/tools/icons -->
-            <g:img id="format-bold-img" src="icons/round-format_bold-24px" onclick="toggleFormat('bold');" />
+            <g:img id="format-bold-img" src="icons/round-format_bold-24px.svg" onclick="toggleFormat('bold');" />
         </div>
         <div id="post-editor" contenteditable="true">
             test
