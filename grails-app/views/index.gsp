@@ -3,9 +3,6 @@
 <head>
     <meta name="layout" content="main"/>
     <script>
-        let editor;
-        let tools;
-        let postButton;
 
         function postAction() {
             toggleInvisibility('new-post');
@@ -19,73 +16,48 @@
         }
 
         function togglePostButtonText() {
-            if (postButton == null) {
-                postButton = document.getElementById('post-button');
-            }
-
             const createMsg = '<g:message code="index.createPost" />';
             const saveMsg = '<g:message code="index.savePost" />';
 
-            if (postButton.innerText === createMsg) {
-                postButton.innerText = saveMsg;
-            } else if (postButton.innerText === saveMsg) {
-                postButton.innerText = createMsg;
+            if (window.postButton.innerText === createMsg) {
+                window.postButton.innerText = saveMsg;
+            } else if (window.postButton.innerText === saveMsg) {
+                window.postButton.innerText = createMsg;
             }
         }
 
         function toggleFormat(name) {
             if (typeof name === 'string') {
                 document.execCommand(name);
-                const img = document.getElementById('format-' + nameToTag(name) + '-img');
+                const img = document.getElementById('format-' + name + '-img');
                 img.classList.toggle('active');
             }
-            editor.focus();
-        }
-
-        function nameToTag(name) {
-            switch (name) {
-                case 'bold':
-                    return 'B';
-            }
+            window.editor.focus();
         }
 
         function updateToolbar() {
-            if (editor == null || tools == null) {
-                editor = document.getElementById('post-editor');
-                tools = document.getElementById('toolbar').getElementsByTagName('img');
-            }
-            const activeTools = [];
-            let pe = getSelection().anchorNode.parentElement;
-            while (pe.id != editor.id) {
-                activeTools.push(pe.tagName);
-                pe = pe.parentElement;
-            }
-            for (let i = 0; i < tools.length; i++){
-                let contained = false;
+            const regexPattern = new RegExp('format-(.*)-img');
+            for (let i = 0; i < window.tools.length; i++){
+                const tool = window.tools[i].id.replace(regexPattern, '$1');
+                const active = document.queryCommandState(tool);
 
-                for (let j = 0; j < activeTools.length; j++) {
-                    if (tools[i].id === 'format-' + activeTools[j] + '-img') {
-                        contained = true;
-                    }
-                }
-
-                const displayedIncorrectly = (contained && !tools[i].classList.contains('active')) || (!contained && tools[i].classList.contains('active'));
+                const displayedIncorrectly = (active && !window.tools[i].classList.contains('active')) || (!active && window.tools[i].classList.contains('active'));
                 if (displayedIncorrectly) {
-                    tools[i].classList.toggle('active');
+                    window.tools[i].classList.toggle('active');
                 }
             }
         }
     </script>
 </head>
-<body>
+<body onload="initVariabbles();">
 <div id="main">
     <div id="new-post" class="invisible">
         <div id="toolbar">
             <!-- Look here for exec commands: https://developer.mozilla.org/en-US/docs/Web/API/Document/execCommand -->
             <!-- EXTERNAL: The svg graphic is from material.io/tools/icons -->
-            <g:img id="format-B-img" class="toolbtn" src="icons/round-format_bold-24px.svg" onclick="toggleFormat('bold');" />
+            <g:img id="format-bold-img" class="toolbtn" src="icons/round-format_bold-24px.svg" onclick="toggleFormat('bold');" />
         </div>
-        <div id="post-editor" contenteditable="true" onclick="updateToolbar()" onmousedown="updateToolbar()" onselect="updateToolbar()" onkeydown="updateToolbar()" onkeypress="updateToolbar()">
+        <div id="post-editor" contenteditable="true">
             <b>test</b>
         </div>
     </div>
@@ -95,5 +67,16 @@
         <g:message code="index.createPost" />
     </button>
 </div>
+<script>
+    // Initialisation of global variables
+    window.postButton = document.getElementById('post-button');
+    window.editor = document.getElementById('post-editor');
+    window.tools = document.getElementById('toolbar').getElementsByTagName('img');
+
+    // Adding Listeners
+    document.addEventListener("selectionchange", function() {
+        updateToolbar();
+    });
+</script>
 </body>
 </html>
