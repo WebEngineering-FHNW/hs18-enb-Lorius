@@ -3,6 +3,17 @@
 <head>
     <meta name="layout" content="main"/>
     <script>
+        function init() {
+            // Initialisation of global variables
+            window.postButton = document.getElementById('post-button');
+            window.editor = document.getElementById('post-editor');
+            window.tools = document.getElementById('toolbar').getElementsByTagName('img');
+
+            // Adding Listeners
+            document.addEventListener("selectionchange", function() {
+                updateToolbar();
+            });
+        }
 
         function postAction() {
             toggleInvisibility('new-post');
@@ -68,15 +79,7 @@
     </button>
 </div>
 <script>
-    // Initialisation of global variables
-    window.postButton = document.getElementById('post-button');
-    window.editor = document.getElementById('post-editor');
-    window.tools = document.getElementById('toolbar').getElementsByTagName('img');
-
-    // Adding Listeners
-    document.addEventListener("selectionchange", function() {
-        updateToolbar();
-    });
+    init();
 </script>
 </body>
 </html>
