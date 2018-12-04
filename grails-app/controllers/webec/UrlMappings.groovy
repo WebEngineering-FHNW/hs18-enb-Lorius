@@ -8,6 +8,7 @@ class UrlMappings {
                 // apply constraints here
             }
         }
+        "/test"(controller:"pdf",action:"index")
         "/"(view:"/index")
         "/old"(view:"/oldIndex")
         "500"(view:'/error')
