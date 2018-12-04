@@ -8,6 +8,7 @@
             window.postButton = document.getElementById('post-button');
             window.editor = document.getElementById('post-editor');
             window.tools = document.getElementById('toolbar').getElementsByTagName('img');
+            window.main = document.getElementById('main');
 
             // Adding Listeners
             document.addEventListener("selectionchange", function() {
@@ -18,6 +19,17 @@
         function postAction() {
             toggleInvisibility('new-post');
             togglePostButtonText();
+            savePost()
+        }
+
+        function savePost() {
+            const post = editor.innerHTML.toString();
+            if (post != '') {
+                const postElement = document.createElement("div");
+                postElement.innerHTML = editor.innerHTML;
+                main.appendChild(postElement);
+                editor.innerHTML = "";
+            }
         }
 
         function toggleInvisibility(id) {
@@ -68,8 +80,8 @@
             <!-- EXTERNAL: The svg graphic is from material.io/tools/icons -->
             <g:img id="format-bold-img" class="toolbtn" src="icons/round-format_bold-24px.svg" onclick="toggleFormat('bold');" />
         </div>
-        <div id="post-editor" contenteditable="true">
-            <b>test</b>
+        <div id="post-editor-container">
+            <div id="post-editor" contenteditable="true"></div>
         </div>
     </div>
 </div>

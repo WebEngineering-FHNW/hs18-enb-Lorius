@@ -8,11 +8,11 @@ body {
 	grid-template-columns: repeat(13, 1fr);
 	grid-template-rows: 1fr 1fr 1fr auto auto;
 	grid-template-areas:
-		". . . logo logo title title title title title . . ."
-		". . . logo logo title title title title title . . ."
-		". . . nav  nav  nav   nav   nav   nav   nav   . . ."
-		". . . main main main  main  main  side  side  . . ."
-		". . . foot foot foot  foot  foot  foot  foot  . . .";
+		". . . logo logo title title title title     title     . . ."
+		". . . logo logo title title title title     title     . . ."
+		". . . nav  nav  nav   nav   nav   nav       nav       . . ."
+		". . . main main main  main  main  side-bar  side-bar  . . ."
+		". . . foot foot foot  foot  foot  foot      foot      . . .";
 }
 
 #site-title {
@@ -34,7 +34,11 @@ nav {
 }
 
 #side-bar {
-	grid-area: side;
+	grid-area: side-bar;
+}
+
+#post-editor {
+
 }
 
 .invisible {
