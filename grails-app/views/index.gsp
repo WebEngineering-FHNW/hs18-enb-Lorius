@@ -83,6 +83,7 @@
         <div id="post-editor-container">
             <div id="post-editor" contenteditable="true"></div>
         </div>
+        <g:link resource="${post}">My Link</g:link>
     </div>
 </div>
 <div id="side-bar">
