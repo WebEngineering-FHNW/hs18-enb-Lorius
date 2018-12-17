@@ -85,6 +85,11 @@
         </div>
         <g:link resource="${post}">My Link</g:link>
     </div>
+    <g:each var="post" in="${posts}">
+        <div>
+            <p>${post.content}</p>
+        </div>
+    </g:each>
 </div>
 <div id="side-bar">
     <button id="post-button" onclick="postAction()">
