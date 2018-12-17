@@ -14,21 +14,6 @@
             document.addEventListener("selectionchange", function() {
                 updateToolbar();
             });
-
-            displayPosts();
-
-        }
-
-        function displayPosts() {
-          const displayArea = document.getElementById('post-display-area');
-          if (displayArea.hasChildNodes()) {
-              const posts = displayArea.children;
-              //document.getElementById('side-bar').innerText = posts[1];
-
-              for (let i = 0;i < posts.length; i++) {
-                  posts[i].firstElementChild.innerHTML = posts[i].lastElementChild.innerText;
-              }
-          }
         }
 
         function postAction() {
@@ -109,12 +94,7 @@
     <div id="post-display-area">
         <g:each var="post" in="${posts}">
             <div id="post-${post.id}">
-                <div id="display-post-${post.id}">
-                </div>
-                <div id="content-${post.id}" class="invisible">
-                    ${post.content}
-                </div>
-
+                ${raw(post.content)}
             </div>
         </g:each>
     </div>
