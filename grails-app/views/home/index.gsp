@@ -25,11 +25,7 @@
         function savePost() {
             const post = editor.innerHTML.toString();
             if (post != '') {
-                const postElement = document.createElement("div");
                 const postContent = editor.innerHTML;
-                postElement.innerHTML = postContent;
-                main.appendChild(postElement);
-                editor.innerHTML = "";
                 document.getElementById('post-form-input').setAttribute('value', postContent);
                 document.getElementById('post-form-submit').click();
             }
@@ -87,8 +83,8 @@
             <div id="post-editor" contenteditable="true"></div>
         </div>
         <g:form name="newPost" class="invisible" action="savePost">
-            <input id="post-form-input" type="text" name="content">
-            <input id="post-form-submit" type="submit" name="submit">
+            <input id="post-form-input" class="invisible" type="text" name="content">
+            <input id="post-form-submit" class="invisible" type="submit" name="submit">
         </g:form>
     </div>
     <div id="post-display-area">

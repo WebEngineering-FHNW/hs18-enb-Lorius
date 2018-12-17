@@ -10,6 +10,8 @@ class HomeController {
     def savePost() {
         def post = new Post(params)
         post.save()
-        index()
+        redirect(action: "index")
     }
+
+
 }
