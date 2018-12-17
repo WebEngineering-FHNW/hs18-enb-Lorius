@@ -3,9 +3,13 @@ package webec
 class HomeController {
 
     def index() {
-        def result = Post.list()
-
-
+        def result = Post.getAll().reverse()
         render view:"index", model: [posts: result]
+    }
+
+    def savePost() {
+        def post = new Post(params)
+        post.save()
+        index()
     }
 }

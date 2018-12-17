@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta name="layout" content="main"/>
-    <script>
+    <g:javascript>
         function init() {
             // Initialisation of global variables
             window.postButton = document.getElementById('post-button');
@@ -14,6 +14,10 @@
             document.addEventListener("selectionchange", function() {
                 updateToolbar();
             });
+
+            const posts = "${posts}";
+            alert(posts);
+
         }
 
         function postAction() {
@@ -26,9 +30,12 @@
             const post = editor.innerHTML.toString();
             if (post != '') {
                 const postElement = document.createElement("div");
-                postElement.innerHTML = editor.innerHTML;
+                const postContent = editor.innerHTML;
+                postElement.innerHTML = postContent;
                 main.appendChild(postElement);
                 editor.innerHTML = "";
+                document.getElementById('post-form-input').setAttribute('value', postContent);
+                document.getElementById('post-form-submit').click();
             }
         }
 
@@ -70,7 +77,7 @@
                 }
             }
         }
-    </script>
+    </g:javascript>
 </head>
 <body onload="initVariabbles();">
 <div id="main">
@@ -83,12 +90,20 @@
         <div id="post-editor-container">
             <div id="post-editor" contenteditable="true"></div>
         </div>
-        <g:link resource="${post}">My Link</g:link>
+        <g:form name="newPost" class="invisible" action="savePost">
+            <input id="post-form-input" type="text" name="content">
+            <input id="post-form-submit" type="submit" name="submit">
+        </g:form>
     </div>
     <g:each var="post" in="${posts}">
-        <div>
-            <p>${post.content}</p>
+        <div id="post-${post.id}">
         </div>
+        <div id="content-${post.id}" class="invisible">
+            ${post.content}
+        </div>
+        <g:javascript>
+            document.getElementById('post-${post.id}').innerHTML = document.getElementById('content-${post.id}').innerText;
+        </g:javascript>
     </g:each>
 </div>
 <div id="side-bar">
