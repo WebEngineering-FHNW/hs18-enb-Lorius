@@ -3,7 +3,7 @@
 <head>
     <meta name="layout" content="main"/>
 </head>
-<body onload="initVariabbles();">
+<body>
     <div id="main">
         <h1>
             <g:message code="about.projectInfoTitle" />
