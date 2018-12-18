@@ -29,11 +29,12 @@
             });
         }
 
-        // This functions just handles everything that must happen when posts are saved.
+        // This functions just handles everything that must happen when the create/savae post button is pressed.
         function postAction() {
             toggleInvisibility('new-post');
             togglePostButtonText();
             savePost()
+            window.editor.focus();
         }
 
         // This form fills out and submits a dummy form to get the contents of the new post to the controller and then the database.
@@ -98,7 +99,7 @@
         }
     </g:javascript>
 </head>
-<body onload="initVariabbles();">
+<body>
 <div id="main">
     <div id="new-post" class="invisible">
         <div id="toolbar">

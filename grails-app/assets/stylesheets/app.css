@@ -6,7 +6,7 @@
 body {
 	display: grid;
 	grid-template-columns: repeat(13, 1fr);
-	grid-template-rows: 1fr 1fr 1fr auto;
+	grid-template-rows: 1fr 1fr auto;
 	grid-template-areas:
 		". . . title title title title title title   title     . . ."
 		". . . nav  nav  nav   nav   nav   nav       nav       . . ."
