@@ -1,6 +1,5 @@
 package webec
 
-import geb.Page
 import geb.spock.GebSpec
 import grails.testing.mixin.integration.Integration
 
