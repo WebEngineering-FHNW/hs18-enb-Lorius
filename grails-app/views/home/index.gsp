@@ -9,10 +9,20 @@
             window.editor = document.getElementById('post-editor');
             window.tools = document.getElementById('toolbar').getElementsByTagName('img');
             window.main = document.getElementById('main');
+            window.fontNamePicker = document.getElementById('font-name-picker');
+            window.fontSizePicker = document.getElementById('font-size-picker');
 
             // Adding Listeners
             document.addEventListener("selectionchange", function() {
                 updateToolbar();
+            });
+            fontNamePicker.addEventListener("change", function() {
+                const fontName = fontNamePicker.options[fontNamePicker.selectedIndex].value;
+                document.execCommand('fontName', true, fontName);
+            });
+            fontSizePicker.addEventListener("change", function() {
+                const fontSize = fontSizePicker.options[fontSizePicker.selectedIndex].value;
+                document.execCommand('fontSize', true, fontSize);
             });
         }
 
@@ -69,6 +79,13 @@
                 }
             }
         }
+
+        function insertLink() {
+            const sLnk = prompt('<g:message code="index.writeURL" />','http:\/\/');
+            if (sLnk && sLnk!='' && sLnk!='http://') {
+                document.execCommand('createlink',true, sLnk);
+            }
+        }
     </g:javascript>
 </head>
 <body onload="initVariabbles();">
@@ -77,7 +94,20 @@
         <div id="toolbar">
             <!-- Look here for exec commands: https://developer.mozilla.org/en-US/docs/Web/API/Document/execCommand -->
             <!-- EXTERNAL: The svg graphic is from material.io/tools/icons -->
-            <g:img id="format-bold-img" class="toolbtn" src="icons/round-format_bold-24px.svg" onclick="toggleFormat('bold');" />
+            <g:select id="font-name-picker" name="font.name" from="${['Arial', 'Roboto', 'Times New Roman']}" />
+            <g:select id="font-size-picker" name="font.size" from="${1..7}" value="3" />
+            <g:img id="format-bold-img" class="toolbtn" src="icons/baseline-format_bold-24px.svg" onclick="toggleFormat('bold');" />
+            <g:img id="format-italic-img" class="toolbtn" src="icons/baseline-format_italic-24px.svg" onclick="toggleFormat('italic');" />
+            <g:img id="format-underlined-img" class="toolbtn" src="icons/baseline-format_underlined-24px.svg" onclick="toggleFormat('underlined');" />
+            <g:img id="format-indent-img" class="toolbtn" src="icons/baseline-format_indent_increase-24px.svg" onclick="toggleFormat('indent');" />
+            <g:img id="format-outdent-img" class="toolbtn" src="icons/baseline-format_indent_decrease-24px.svg" onclick="toggleFormat('outdent');" />
+            <g:img id="format-insertUnorderedList-img" class="toolbtn" src="icons/baseline-format_list_bulleted-24px.svg" onclick="toggleFormat('insertUnorderedList');" />
+            <g:img id="format-insertOrderedList-img" class="toolbtn" src="icons/baseline-format_list_numbered-24px.svg" onclick="toggleFormat('insertOrderedList');" />
+            <g:img id="format-justifyLeft-img" class="toolbtn" src="icons/baseline-format_align_left-24px.svg" onclick="toggleFormat('justifyLeft');" />
+            <g:img id="format-justifyCenter-img" class="toolbtn" src="icons/baseline-format_align_center-24px.svg" onclick="toggleFormat('justifyCenter');" />
+            <g:img id="format-justifyRight-img" class="toolbtn" src="icons/baseline-format_align_right-24px.svg" onclick="toggleFormat('justifyRight');" />
+            <g:img id="format-justifyFull-img" class="toolbtn" src="icons/baseline-format_align_justify-24px.svg" onclick="toggleFormat('justifyFull');" />
+            <g:img id="link-btn" class="toolbtn" src="icons/baseline-insert_link-24px.svg" onclick="insertLink()" />
         </div>
         <div id="post-editor-container">
             <div id="post-editor" contenteditable="true"></div>
