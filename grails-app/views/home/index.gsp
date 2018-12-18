@@ -89,6 +89,7 @@
             }
         }
 
+        // This function is responsible for inserting Hyper Links. Of course, it has basic input validation.
         function insertLink() {
             const sLnk = prompt('<g:message code="index.writeURL" />','http:\/\/');
             if (sLnk && sLnk!='' && sLnk!='http://') {
