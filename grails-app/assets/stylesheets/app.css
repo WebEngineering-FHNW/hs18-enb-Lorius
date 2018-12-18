@@ -6,13 +6,11 @@
 body {
 	display: grid;
 	grid-template-columns: repeat(13, 1fr);
-	grid-template-rows: 1fr 1fr 1fr auto auto;
+	grid-template-rows: 1fr 1fr 1fr auto;
 	grid-template-areas:
-		". . . logo logo title title title title     title     . . ."
-		". . . logo logo title title title title     title     . . ."
+		". . . title title title title title title   title     . . ."
 		". . . nav  nav  nav   nav   nav   nav       nav       . . ."
-		". . . main main main  main  main  side-bar  side-bar  . . ."
-		". . . foot foot foot  foot  foot  foot      foot      . . .";
+		". . . main main main  main  main  side-bar  side-bar  . . .";
 }
 
 #site-title {
@@ -22,16 +20,16 @@ body {
 nav {
 	grid-area: nav;
 	display: grid;
-	grid-template-columns: repeat(7, 1fr);
+	grid-template-columns: repeat(8, 1fr);
 	grid-template-areas:
-		". . . about-page-link old-index . . ";
+		". . . index about-page-link  . . . ";
 }
 #about-page-link {
 	grid-area: about-page-link;
 }
 
-#old-index {
-	grid-area: old-index;
+#index {
+	grid-area: index;
 }
 #main {
 	grid-area: main;
@@ -58,4 +56,10 @@ nav {
 
 .toolbtn:hover {
 	background-color: var(--hover-bg-color);
+}
+#toolbar > div {
+	display: inline;
+}
+#font-tool-group {
+	padding: auto;
 }
