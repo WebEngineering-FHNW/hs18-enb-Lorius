@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
 <head>
-    <meta name="layout" content="main"/>
+    <meta name="layout" content="newMain"/>
     <g:javascript>
         function init() {
             // Initialisation of global variables
