@@ -3,6 +3,6 @@ package webec
 import grails.testing.web.controllers.ControllerUnitTest
 import spock.lang.Specification
 
-class HomeControllerSpec extends Specification implements ControllerUnitTest<HomeController> {
+class PostControllerSpec extends Specification implements ControllerUnitTest<PostController> {
     // I cannot think of any relevant tests.
 }

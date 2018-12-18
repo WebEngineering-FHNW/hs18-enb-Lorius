@@ -5,14 +5,13 @@ import spock.lang.Specification
 
 class PostSpec extends Specification implements DomainUnitTest<Post> {
 
-    def setup() {
-    }
-
-    def cleanup() {
-    }
-
-    void "test something"() {
-        expect:"fix me"
-            true == false
+    // Make sure that no Blog Post is null or empty
+    void "Blog entires cannot be empty"() {
+        expect:
+        domain != null
+        when:
+        true
+        then:
+        domain.content != ''
     }
 }

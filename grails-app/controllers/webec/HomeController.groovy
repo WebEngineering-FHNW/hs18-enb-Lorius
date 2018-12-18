@@ -8,7 +8,7 @@ class HomeController {
     }
 
     def savePost() {
-        def post = new Post(params)
+        def post = new webec.Post(params)
         post.save()
         redirect(action: "index")
     }
