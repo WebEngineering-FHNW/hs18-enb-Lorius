@@ -43,7 +43,7 @@ You might start.
 You should view the website in the Google Chrome Browser.
 
 ### I'm particulary proud of:
-All the different tools that you can use to format the browser.
+The WYSIWIG editor that I made all by myself.
 
 ## Project grading 
 
