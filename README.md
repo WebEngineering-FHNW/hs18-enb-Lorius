@@ -37,11 +37,13 @@ You might start.
 `index.html`
 
 ### External contributions:
+- a few icons
 
 ### Other comments: 
+You should view the website in the Google Chrome Browser.
 
 ### I'm particulary proud of:
-
+All the different tools that you can use to format the browser.
 
 ## Project grading 
 
