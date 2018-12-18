@@ -93,21 +93,29 @@
     <div id="new-post" class="invisible">
         <div id="toolbar">
             <!-- Look here for exec commands: https://developer.mozilla.org/en-US/docs/Web/API/Document/execCommand -->
-            <!-- EXTERNAL: The svg graphic is from material.io/tools/icons -->
-            <g:select id="font-name-picker" name="font.name" from="${['Arial', 'Roboto', 'Times New Roman']}" />
-            <g:select id="font-size-picker" name="font.size" from="${1..7}" value="3" />
-            <g:img id="format-bold-img" class="toolbtn" src="icons/baseline-format_bold-24px.svg" onclick="toggleFormat('bold');" />
-            <g:img id="format-italic-img" class="toolbtn" src="icons/baseline-format_italic-24px.svg" onclick="toggleFormat('italic');" />
-            <g:img id="format-underlined-img" class="toolbtn" src="icons/baseline-format_underlined-24px.svg" onclick="toggleFormat('underlined');" />
-            <g:img id="format-indent-img" class="toolbtn" src="icons/baseline-format_indent_increase-24px.svg" onclick="toggleFormat('indent');" />
-            <g:img id="format-outdent-img" class="toolbtn" src="icons/baseline-format_indent_decrease-24px.svg" onclick="toggleFormat('outdent');" />
-            <g:img id="format-insertUnorderedList-img" class="toolbtn" src="icons/baseline-format_list_bulleted-24px.svg" onclick="toggleFormat('insertUnorderedList');" />
-            <g:img id="format-insertOrderedList-img" class="toolbtn" src="icons/baseline-format_list_numbered-24px.svg" onclick="toggleFormat('insertOrderedList');" />
-            <g:img id="format-justifyLeft-img" class="toolbtn" src="icons/baseline-format_align_left-24px.svg" onclick="toggleFormat('justifyLeft');" />
-            <g:img id="format-justifyCenter-img" class="toolbtn" src="icons/baseline-format_align_center-24px.svg" onclick="toggleFormat('justifyCenter');" />
-            <g:img id="format-justifyRight-img" class="toolbtn" src="icons/baseline-format_align_right-24px.svg" onclick="toggleFormat('justifyRight');" />
-            <g:img id="format-justifyFull-img" class="toolbtn" src="icons/baseline-format_align_justify-24px.svg" onclick="toggleFormat('justifyFull');" />
-            <g:img id="link-btn" class="toolbtn" src="icons/baseline-insert_link-24px.svg" onclick="insertLink()" />
+            <!-- EXTERNAL: The svg graphics are from material.io/tools/icons -->
+            <div id="font-tool-group" class="tool-group">
+                <g:select id="font-name-picker" name="font.name" from="${['Arial', 'Roboto', 'Times New Roman']}" />
+                <g:select id="font-size-picker" name="font.size" from="${1..7}" value="3" />
+            </div>
+            <div id="basic-format-tool-group" class="tool-group">
+                <g:img id="format-bold-img" class="toolbtn" src="icons/baseline-format_bold-24px.svg" onclick="toggleFormat('bold');" />
+                <g:img id="format-italic-img" class="toolbtn" src="icons/baseline-format_italic-24px.svg" onclick="toggleFormat('italic');" />
+                <g:img id="format-underlined-img" class="toolbtn" src="icons/baseline-format_underlined-24px.svg" onclick="toggleFormat('underlined');" />
+                <g:img id="format-insertUnorderedList-img" class="toolbtn" src="icons/baseline-format_list_bulleted-24px.svg" onclick="toggleFormat('insertUnorderedList');" />
+                <g:img id="format-insertOrderedList-img" class="toolbtn" src="icons/baseline-format_list_numbered-24px.svg" onclick="toggleFormat('insertOrderedList');" />
+            </div>
+            <div id="advanced-format-tool-group" class="tool-group">
+                <g:img id="format-justifyLeft-img" class="toolbtn" src="icons/baseline-format_align_left-24px.svg" onclick="toggleFormat('justifyLeft');" />
+                <g:img id="format-justifyCenter-img" class="toolbtn" src="icons/baseline-format_align_center-24px.svg" onclick="toggleFormat('justifyCenter');" />
+                <g:img id="format-justifyRight-img" class="toolbtn" src="icons/baseline-format_align_right-24px.svg" onclick="toggleFormat('justifyRight');" />
+                <g:img id="format-justifyFull-img" class="toolbtn" src="icons/baseline-format_align_justify-24px.svg" onclick="toggleFormat('justifyFull');" />
+                <g:img id="format-indent-img" class="toolbtn" src="icons/baseline-format_indent_increase-24px.svg" onclick="toggleFormat('indent');" />
+                <g:img id="format-outdent-img" class="toolbtn" src="icons/baseline-format_indent_decrease-24px.svg" onclick="toggleFormat('outdent');" />
+            </div>
+            <div id="misc-tool-group" class="tool-group">
+                <g:img id="link-btn" class="toolbtn" src="icons/baseline-insert_link-24px.svg" onclick="insertLink()" />
+            </div>
         </div>
         <div id="post-editor-container">
             <div id="post-editor" contenteditable="true"></div>

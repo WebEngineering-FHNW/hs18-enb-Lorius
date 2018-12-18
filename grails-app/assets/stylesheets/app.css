@@ -24,8 +24,12 @@ nav {
 	display: grid;
 	grid-template-columns: repeat(7, 1fr);
 	grid-template-areas:
-		". . . . old-index . . ";
+		". . . about-page-link old-index . . ";
 }
+#about-page-link {
+	grid-area: about-page-link;
+}
+
 #old-index {
 	grid-area: old-index;
 }
