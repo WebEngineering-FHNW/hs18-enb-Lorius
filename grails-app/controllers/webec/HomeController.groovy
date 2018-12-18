@@ -9,8 +9,9 @@ class HomeController {
     }
 
     // This method right here actually saves the new posts and redirects the users to the homepage so that they're not on a strange URL after saving Posts
+
     def savePost() {
-        def post = new webec.Post(params)
+        def post = new Post(params)
         post.save()
         redirect(action: "index")
     }
