@@ -1,0 +1,61 @@
+:root {
+	--hover-bg-color: rgba(66, 134, 244, 0.5);
+	--active-bg-color: rgba(127, 127, 127, 0.5);
+}
+
+body {
+	display: grid;
+	grid-template-columns: repeat(13, 1fr);
+	grid-template-rows: 1fr 1fr 1fr auto auto;
+	grid-template-areas:
+		". . . logo logo title title title title     title     . . ."
+		". . . logo logo title title title title     title     . . ."
+		". . . nav  nav  nav   nav   nav   nav       nav       . . ."
+		". . . main main main  main  main  side-bar  side-bar  . . ."
+		". . . foot foot foot  foot  foot  foot      foot      . . .";
+}
+
+#site-title {
+	grid-area: title;
+	text-align: center;
+}
+nav {
+	grid-area: nav;
+	display: grid;
+	grid-template-columns: repeat(7, 1fr);
+	grid-template-areas:
+		". . . about-page-link old-index . . ";
+}
+#about-page-link {
+	grid-area: about-page-link;
+}
+
+#old-index {
+	grid-area: old-index;
+}
+#main {
+	grid-area: main;
+}
+
+#side-bar {
+	grid-area: side-bar;
+}
+
+#post-editor {
+
+}
+
+.invisible {
+	display: none;
+}
+.visible {
+	display: block;
+}
+
+.active {
+	background-color: var(--active-bg-color);
+}
+
+.toolbtn:hover {
+	background-color: var(--hover-bg-color);
+}
