@@ -13,9 +13,12 @@
             window.fontSizePicker = document.getElementById('font-size-picker');
 
             // Adding Listeners
+            // This first listener makes sure that only the active tools are displayed as such.
             document.addEventListener("selectionchange", function() {
                 updateToolbar();
             });
+
+            // These two listeners make sure that changes in the dropdowns' selections (for font-family and font-size) actually affect the editor contents.
             fontNamePicker.addEventListener("change", function() {
                 const fontName = fontNamePicker.options[fontNamePicker.selectedIndex].value;
                 document.execCommand('fontName', true, fontName);
@@ -26,12 +29,14 @@
             });
         }
 
+        // This functions just handles everything that must happen when posts are saved.
         function postAction() {
             toggleInvisibility('new-post');
             togglePostButtonText();
             savePost()
         }
 
+        // This form fills out and submits a dummy form to get the contents of the new post to the controller and then the database.
         function savePost() {
             const post = editor.innerHTML.toString();
             if (post != '') {
@@ -41,12 +46,14 @@
             }
         }
 
+        // Insanely useful function
         function toggleInvisibility(id) {
             if (typeof id === 'string') {
                 document.getElementById(id).classList.toggle('invisible');
             }
         }
 
+        // Only just toggles the text of the "create/save post" button.
         function togglePostButtonText() {
             const createMsg = '<g:message code="index.createPost" />';
             const saveMsg = '<g:message code="index.savePost" />';
@@ -58,6 +65,7 @@
             }
         }
 
+        // This method executes almost all the execCommand commands
         function toggleFormat(name) {
             if (typeof name === 'string') {
                 document.execCommand(name);
@@ -67,6 +75,7 @@
             window.editor.focus();
         }
 
+        // This function makes sure, that all the tool images are appropriately highlighted.
         function updateToolbar() {
             const regexPattern = new RegExp('format-(.*)-img');
             for (let i = 0; i < window.tools.length; i++){
@@ -93,6 +102,7 @@
     <div id="new-post" class="invisible">
         <div id="toolbar">
             <!-- These are all the tools that I made available. They are presented as clickable images -->
+            <!-- These are also all the dependencies or external artefacts that I use -->
             <!-- Look here for exec commands: https://developer.mozilla.org/en-US/docs/Web/API/Document/execCommand -->
             <!-- EXTERNAL: The svg graphics are from material.io/tools/icons -->
             <div id="font-tool-group" class="tool-group">
