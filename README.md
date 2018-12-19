@@ -43,7 +43,9 @@ You might start.
 You should view the website in the Google Chrome Browser.
 
 ### I'm particulary proud of:
-The WYSIWIG editor that I made all by myself.
+- The WYSIWIG editor that I made all by myself.
+- THe fact that the role-based-security-based-rest-interface actually works.
+- Definitely not the way the website looks
 
 ## Project grading 
 
