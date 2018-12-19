@@ -22,20 +22,30 @@
 		Description
 	</h2>
 	<p>
-		Upon starting the website up. You are presented with a homepage of the website on the port 8080.
+		Upon starting up the website, you are presented with a login page of the website on the port 8080.
+		There are two valid accounts (username:admin & password:admin - username:guest password:guest).
+		In order to see the experience the full potential of the website you need to be an admin.
+		Upon login, you land on the homepage.
 		This homepage contains all the major features of this site.
 		Basically, you can click on the "Create Post" Button write a blog post, make use of all the formatting options, save your post and then admire what you've written.
 		You can even create Hyper-Links if you wish to do so - of course I used some input validation here.
 		The posts are saved and retrieved via a database.
-		At an earlier point in time the posts table in the database was also exposed as a service - this, however, ceased working after adding the PostController.
-		Now you only get an error when you try to go to /posts.
+	</p>
+	<p>
+		What's probably less obvious is the fact that the posts are exposed as a service. If you want, you can test it.
+		But you need to keep in mind that this might be a bit cumbersome because you first to retrieve an access token.
+		If you want to do that, you need to first send a POST request to localhost:8080/api/login and copy the access_token in the response.
+		Thereafter, you need to send a GET request to localhost:8080/api/post with one header.
+		The key in this header is a X-Auth-Token and the corresponding value is the previously recieved token.
+		Also, you need to keep in mind, that this service is never actually used on the website.
 	</p>
 	<h2>
 		Features
 	</h2>
 	<ul>
 		<li>Creating and viewing posts on website</li>
-		<li><strike>CRUD for the posts</strike></li>
+		<li>Role-Based Security</li>
+		<li>CRUD for the posts</li>
 	</ul>
 </body>
 </html>
