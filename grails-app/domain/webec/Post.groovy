@@ -1,5 +1,7 @@
 package webec
 
+import grails.rest.*
+
 class Post {
 
     String content
