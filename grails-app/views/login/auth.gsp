@@ -5,14 +5,10 @@
     <asset:javascript src="bootstrap.js" />
     <style>
         #container {
-            margin: auto;
-            width: 25%;
-            height: 25%;
+            margin:  auto;
+            width:   25%;
             padding: 10px;
         }
-
-
-
     </style>
 </head>
 

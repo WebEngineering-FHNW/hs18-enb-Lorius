@@ -11,8 +11,9 @@
 <body>
     <h1 id="site-title">BlogThread</h1>
     <nav>
-        <a id="about-page-link" href="/about" title="About Page"><g:message code="main.aboutPage"/></a>
-        <a id="index" href="/" title="Homepage">Index</a>
+        <a id="about-link" href="/about" title="About Page"><g:message code="main.aboutPage"/></a>
+        <a id="index-link" href="/" title="Homepage"><g:message code="default.home.label" /></a>
+        <a id="logout-link" href="/logout" title="Logout"><g:message code="default.home.label" /></a>
     </nav>
     <g:layoutBody/>
 </body>
