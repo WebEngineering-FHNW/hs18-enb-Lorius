@@ -2,7 +2,8 @@
 grails.plugin.springsecurity.userLookup.userDomainClassName = 'webec.User'
 grails.plugin.springsecurity.userLookup.authorityJoinClassName = 'webec.UserRole'
 grails.plugin.springsecurity.authority.className = 'webec.Role'
-grails.plugin.springsecurity.controllerAnnotations.staticRules = [
+grails.plugin.springsecurity.securityConfigType = "InterceptUrlMap"
+grails.plugin.springsecurity.interceptUrlMap  = [
         [pattern: '/',               access: ['permitAll']],
         [pattern: '/about',          access: ['permitAll']],
         [pattern: '/posts',          access: ['permitAll']],
@@ -14,7 +15,11 @@ grails.plugin.springsecurity.controllerAnnotations.staticRules = [
         [pattern: '/**/js/**',       access: ['permitAll']],
         [pattern: '/**/css/**',      access: ['permitAll']],
         [pattern: '/**/images/**',   access: ['permitAll']],
-        [pattern: '/**/favicon.ico', access: ['permitAll']]
+        [pattern: '/**/favicon.ico', access: ['permitAll']],
+        [pattern: '/api/login',      access: ['permitAll']],
+        [pattern: '/api/logout',     access: ['ROLE_ADMIN']],
+        [pattern: '/api/post',       access: ['ROLE_ADMIN']],
+        [pattern: '/**',             access: ['ROLE_ADMIN']]
 ]
 
 grails.plugin.springsecurity.filterChain.chainMap = [
@@ -23,7 +28,15 @@ grails.plugin.springsecurity.filterChain.chainMap = [
 	[pattern: '/**/css/**',      filters: 'none'],
 	[pattern: '/**/images/**',   filters: 'none'],
 	[pattern: '/**/favicon.ico', filters: 'none'],
-	[pattern: '/**',             filters: 'JOINED_FILTERS']
+    [pattern: '/api/**',         filters: 'JOINED_FILTERS,-anonymousAuthenticationFilter,-exceptionTranslationFilter,-authenticationProcessingFilter,-securityContextPersistenceFilter'],
+    [pattern: '/**',             filters: 'JOINED_FILTERS,-restTokenValidationFilter,-restExceptionTranslationFilter']
 ]
-// Recommended for simplicity's sake in the documentation
+
 grails.plugin.springsecurity.logout.postOnly = false
+grails.plugin.springsecurity.rest.logout.endpointUrl = '/api/logout'
+grails.plugin.springsecurity.rest.token.validation.useBearerToken = false
+grails.plugin.springsecurity.rest.token.validation.headerName = 'X-Auth-Token'
+grails.plugin.springsecurity.rest.token.storage.memcached.hosts = 'localhost:11211'
+grails.plugin.springsecurity.rest.token.storage.memcached.username = ''
+grails.plugin.springsecurity.rest.token.storage.memcached.password = ''
+grails.plugin.springsecurity.rest.token.storage.memcached.expiration = 86400
