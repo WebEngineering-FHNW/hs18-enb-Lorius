@@ -6,11 +6,11 @@
 body {
 	display: grid;
 	grid-template-columns: repeat(13, 1fr);
-	grid-template-rows: 1fr 1fr auto;
+	grid-template-rows: auto auto auto;
 	grid-template-areas:
-		". . . title title title title title title   title     . . ."
-		". . . nav  nav  nav   nav   nav   nav       nav       . . ."
-		". . . main main main  main  main  side-bar  side-bar  . . .";
+		". . . title title title title title title    title    . . ."
+		". . . nav   nav   nav   nav   nav   nav      nav      . . ."
+		". . . main  main  main  main  main  side-bar side-bar . . .";
 }
 
 #site-title {
@@ -20,16 +20,20 @@ body {
 nav {
 	grid-area: nav;
 	display: grid;
-	grid-template-columns: repeat(8, 1fr);
+	grid-template-columns: repeat(7, 1fr);
 	grid-template-areas:
-		". . . index about-page-link  . . . ";
+		". . index-link about-link logout-link . .";
 }
-#about-page-link {
-	grid-area: about-page-link;
+#index-link {
+	grid-area: index-link;
 }
 
-#index {
-	grid-area: index;
+#about-link {
+	grid-area: about-link;
+}
+
+#logout-link {
+	grid-area: logout-link;
 }
 #main {
 	grid-area: main;

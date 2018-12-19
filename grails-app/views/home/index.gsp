@@ -33,7 +33,7 @@
         function postAction() {
             toggleInvisibility('new-post');
             togglePostButtonText();
-            savePost()
+            savePost();
             window.editor.focus();
         }
 
@@ -73,6 +73,7 @@
                 const img = document.getElementById('format-' + name + '-img');
                 img.classList.toggle('active');
             }
+            updateToolbar();
             window.editor.focus();
         }
 
@@ -133,7 +134,7 @@
 
         <!-- This is the dive that the user gets to edit. -->
         <div id="post-editor-container">
-            <div id="post-editor" contenteditable="true"></div>
+            <div id="post-editor" contenteditable="true" style="min-height: 1em; background: ghostwhite; border-style: dashed; border-width: thin;"></div>
         </div>
 
         <!-- This is basically a dummy form that I fill out and submit via some javascript code. -->

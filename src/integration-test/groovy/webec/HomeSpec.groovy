@@ -14,6 +14,13 @@ class HomeSpec extends GebSpec {
         when: "arrive"
         go '/'
         then:
+        title == "Login"
+
+        when: "Login"
+        $("input", name:"username").value("admin")
+        $("input", name:"password").value("admin")
+        $("input", type:"submit").click()
+        then: "Enter Homepage"
         title == "BlogThread"
 
         when: "Default View"
