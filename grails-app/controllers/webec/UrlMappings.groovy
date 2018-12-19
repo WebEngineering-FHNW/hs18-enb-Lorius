@@ -10,7 +10,7 @@ class UrlMappings {
         }
         "/"(controller: "home", action: "index")
         "/about"(view:"/about")
-        "/api/post"(resources: "post")
+        //"/api/post"(resources: "post")
 
         "/old"(view:"/oldIndex")
         "500"(view:'/error')
