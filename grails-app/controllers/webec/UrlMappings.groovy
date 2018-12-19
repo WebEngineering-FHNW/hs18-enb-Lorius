@@ -8,7 +8,6 @@ class UrlMappings {
                 // apply constraints here
             }
         }
-        "/posts"(resource:'post')
         "/"(controller: "home", action: "index")
         "/about"(view:"/about")
 

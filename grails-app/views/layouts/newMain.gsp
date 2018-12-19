@@ -2,7 +2,10 @@
 <html lang="en">
 <head>
     <title><g:layoutTitle default="BlogThread"/></title>
+    <asset:stylesheet src="bootstrap.css" />
+    <asset:javascript src="bootstrap.js" />
     <asset:stylesheet src="app.css"/>
+
     <g:layoutHead/>
 </head>
 <body>
