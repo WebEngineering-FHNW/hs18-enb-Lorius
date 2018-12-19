@@ -4,11 +4,12 @@ grails.plugin.springsecurity.userLookup.authorityJoinClassName = 'webec.UserRole
 grails.plugin.springsecurity.authority.className = 'webec.Role'
 grails.plugin.springsecurity.securityConfigType = "InterceptUrlMap"
 grails.plugin.springsecurity.interceptUrlMap  = [
-        [pattern: '/',               access: ['permitAll']],
+        [pattern: '/',               access: ['IS_AUTHENTICATED_FULLY']],
         [pattern: '/about',          access: ['permitAll']],
         [pattern: '/posts',          access: ['permitAll']],
         [pattern: '/error',          access: ['permitAll']],
         [pattern: '/index',          access: ['permitAll']],
+        [pattern: '/login/**',       access: ['permitAll']],
         [pattern: '/index.gsp',      access: ['permitAll']],
         [pattern: '/shutdown',       access: ['permitAll']],
         [pattern: '/assets/**',      access: ['permitAll']],
