@@ -13,7 +13,7 @@
     <nav>
         <a id="about-link" href="/about" title="About Page"><g:message code="main.aboutPage"/></a>
         <a id="index-link" href="/" title="Homepage"><g:message code="default.home.label" /></a>
-        <a id="logout-link" href="/logout" title="Logout"><g:message code="default.home.label" /></a>
+        <a id="logout-link" href="/logout" title="Logout"><g:message code="main.logout" /></a>
     </nav>
     <g:layoutBody/>
 </body>
