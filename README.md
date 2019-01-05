@@ -57,8 +57,7 @@ You should view the website in the Google Chrome Browser.
   - I am able to generate _empty_ posts (which do NOT appear as such afterwards).
 * Some service methods are exposed. I tested as following:
   1. `curl -i -H "Content-Type: application/json" -X POST -d '{"username":"admin","password":"admin"'} localhost:8080/api/login`
-  1. `curl -H "X-Auth-Token: <token-previously-returned>" localhost:8080/api/post`
-  
+  1. `curl -H "X-Auth-Token: <token-previously-returned>" localhost:8080/api/post`  
   As I was able to list my posts. Nice!
   
 Congratulations! I am awarding three extra points for the WISIWIG editor. Unfortunately no extra point for the _artistic value_... :smiley:
