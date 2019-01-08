@@ -52,9 +52,11 @@ You should view the website in the Google Chrome Browser.
 * Commit log is VERY good.
 * _index.html_ page is valid. However, some errors have been discovered when validating the generated **HTML** pages.
 * **CR(~~UD~~)** operations available.
+* Input validation on login page
 * Usage of _layout_ and `<g:message ...>`
 * To improve:
-  - I am able to generate _empty_ posts (which do NOT appear as such afterwards).
+  - ~~I am able to generate _empty_ posts (which do NOT appear as such afterwards)~~.
+  Actually, _empty_ posts are just ignored. Better would be some sort of feedback
 * Some service methods are exposed. I tested as following:
   1. `curl -i -H "Content-Type: application/json" -X POST -d '{"username":"admin","password":"admin"'} localhost:8080/api/login`
   1. `curl -H "X-Auth-Token: <token-previously-returned>" localhost:8080/api/post`  
@@ -62,4 +64,4 @@ You should view the website in the Google Chrome Browser.
   
 Congratulations! I am awarding three extra points for the WISIWIG editor. Unfortunately no extra point for the _artistic value_... :smiley:
   
-Grade: **5.4**
+Grade: **5.9**
